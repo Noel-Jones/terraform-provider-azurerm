@@ -38,7 +38,7 @@ resource "azurerm_kusto_cluster" "example" {
 
 The following arguments are supported:
 
-* `name` - (Required) The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+* `name` - (Required) The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 
 * `location` - (Required) The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 
@@ -82,7 +82,9 @@ The following arguments are supported:
 
 * `zones` - (Optional) Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 
-* `engine` - (Optional). The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+* `engine` - (Optional). The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+
+~> **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`. 
 
 ---
 
